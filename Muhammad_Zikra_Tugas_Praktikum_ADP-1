@@ -1,0 +1,25 @@
+program Tugas_Praktikum_ADP_1;
+
+var
+a, b, c, d,t,L, Kll: Real;
+begin
+
+write('a=');
+readln (a);
+write('b=');
+readln (b);
+write ('c=');
+readln (c);
+write ('d=');
+readln (d);
+write ('t=');
+readln(t) ;
+
+
+L := (a+b) /2 *t;
+writeln('Luas=', L); 
+Kll := a+b+c+d;
+writeln('Keliling=',Kll);
+
+readln
+end.
