@@ -1,0 +1,53 @@
+program Pesan_Antar_Makanan_Restoran_Xakapa;
+uses crt;
+
+var
+  paket: char;
+  jarak, Harga, ongkir, total: real;
+
+begin
+clrscr;
+  writeln('Selamat datang di layanan pesan-antar makanan  online Restoran Xakapa');
+ writeln('Silahkan pilih paket makanan dan selamat berbelanja');
+  writeln('===================================================');
+  writeln('Pilih paket makanan yang ingin dipesan:');
+  writeln('A. Paket A (Rp25.000)');
+  writeln('B. Paket B (Rp30.000)');
+  writeln('C. Paket C (Rp45.000)');
+  write('Masukkan pilihan Anda (A/B/C): ');
+  readln(paket);
+
+  if (paket = 'A') then
+    Harga := 25000
+  else if (paket = 'B') then
+    Harga := 30000
+  else if (paket = 'C') then
+    Harga := 45000
+  else
+  begin
+    writeln('paket tidak tersedia');
+    exit;
+  end;
+
+  write('Masukkan jarak rumah Anda dengan restoran (dalam meter): ');
+  readln(jarak);
+
+  if jarak < 0.5 then
+    ongkir := 0
+  else if (jarak >= 0.5) and (jarak <= 1.5) then
+    ongkir := 10000
+  else
+    ongkir := 20000;
+
+  total := Harga + ongkir;
+
+  writeln;
+
+  writeln('===================================================');
+  writeln('Anda memesan paket ', paket);
+  writeln('Harga paket: Rp', Harga:6:0);
+  writeln('Ongkir: Rp', ongkir:6:0);
+  writeln('Total biaya yang perlu dibayar: Rp', total:6:0);
+  writeln('===================================================');
+  writeln('Terimakasih telah berbelanja dan selamat menikmati makanan anda');
+end.
