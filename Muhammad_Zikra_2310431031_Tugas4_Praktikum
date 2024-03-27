@@ -1,0 +1,13 @@
+def pola_perulangan_angka(p, l):
+    angka = 1
+    for i in range(l):
+        for j in range(p):
+            if angka%4==0:
+                print("Door",end=" ")
+            else:
+                print(angka, end=" ")
+            angka += 1
+        print()
+p = 8
+l = 10
+pola_perulangan_angka(p,l)
