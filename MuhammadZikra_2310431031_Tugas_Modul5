@@ -1,0 +1,58 @@
+th=0   #total harga
+print("                                         VENDING Minuman")
+print()
+print("  ==> <==")
+print("  Promo Hari Ini : ")
+print("                  - potongan harga 10% untuk pembelian aqua minimal 12 botol")
+print("                  - Potongan harga 5% untuk minimal belanja 50 Ribu")
+print()
+a=input(" apakah anda ingin membeli minuman? ")
+if a=="iya"or"ya"or"y":
+    while True:
+        print("  Daftar list dan harga minuman")
+        print("  +----+-----------------+---------+")
+        print("  | NO |  JENIS MINUMAN  |  HARGA  |")
+        print("  +----+-----------------+---------+")
+        print("  | 1  |  aqua           | Rp.3000 |")
+        print("  | 2  |  ekstrajos      | Rp.7000 |")
+        print("  | 3  |  fanta          | Rp.5000 |")
+        print("  | 4  |  sprit          | Rp.5000 |")
+        print("  | 5  |  coca-cola      | Rp.5000 |")
+        print("  | 6  |  susu           | Rp.9000 |")
+        print("  | 7  |  teps           | Rp.6000 |")
+        print("  | 8  |  teh botol      | Rp.4000 |")
+        print("  | 9  |  kopiku         | Rp.4000 |")
+        print("  +----+-----------------+---------+")
+        jm=input("  masukan pesanan anda : ")
+        bm=int(input("berapa banyak minuman yang ingin anda pesan : "))
+        if jm=="1" :
+            if bm >=12:
+                th+=3000*bm*0.9
+            else:
+                th+=3000*bm
+        elif jm=="2" :
+            th+=7000*bm
+        elif jm=="3" :
+            th+=5000*bm
+        elif jm=="4" :
+            th+=5000*bm
+        elif jm== "5":
+            th+=5000*bm
+        elif jm== "6" :
+            th+=9000*bm
+        elif jm=="7" :
+            th+=6000*bm
+        elif jm=="8" :
+            th+=4000*bm
+        elif jm=="9":
+            th+=4000*bm
+        else:
+            print("pesanan ada belum tersedia")
+            th+=0
+        a=input("Apakah ada pesanan lain?").lower()
+        if a=="tidak":
+            break
+    print("  struk pesanan anda ")
+    if th>=50000:
+        th+=-(th*0.05)
+    print("  total harga : ",th)
