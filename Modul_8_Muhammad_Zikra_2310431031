@@ -1,0 +1,98 @@
+print ('Praktikum Algoritma dan Program ')
+print('Modul 8 : Dictionary and File Text')
+print('Nama : Muhammad Zikra')
+print('NIM : 2310431031')
+print ('Shift : 3')
+
+import ast
+
+# Menambahkan data film ke dalam dictionary
+def tambah_data(film_dict):
+    judul = input("Masukkan judul film: ")
+    penulis = input("Masukkan nama penulis skenario: ")
+    sutradara = input("Masukkan nama sutradara: ")
+    tahun_rilis = input("Masukkan tahun rilis: ")
+    film_dict[judul] = {"Penulis Skenario": penulis, "Sutradara": sutradara, "Tahun Rilis": tahun_rilis}
+    print("Data film telah ditambahkan.")
+
+#  Menghapus data film dari dictionary
+def hapus_data(film_dict):
+    judul = input("Masukkan judul film yang ingin dihapus: ")
+    if judul in film_dict:
+        del film_dict[judul]
+        print("Data film telah dihapus.")
+    else:
+        print("Judul film tidak ditemukan.")
+
+# Mengedit data film dalam dictionary
+def edit_data(film_dict):
+    judul = input("Masukkan judul film yang ingin diedit: ")
+    if judul in film_dict:
+        print("Data film yang ingin diubah:")
+        print(film_dict[judul])
+        penulis = input("Masukkan nama penulis skenario baru: ")
+        sutradara = input("Masukkan nama sutradara baru: ")
+        tahun_rilis = input("Masukkan tahun rilis baru: ")
+        film_dict[judul] = {"Penulis Skenario": penulis, "Sutradara": sutradara, "Tahun Rilis": tahun_rilis}
+        print("Data film telah diubah.")
+    else:
+        print("Judul film tidak ditemukan.")
+
+# Menampilkan semua data film yang tersimpan dalam dictionary
+def tampilkan_data(film_dict):
+    if film_dict:
+        print("Data film:")
+        for judul, info in film_dict.items():
+            print("- Judul:", judul)
+            for key, value in info.items():
+                print("  ", key + ":", value)
+    else:
+        print("Belum ada data film yang tersimpan.")
+
+# Menyimpan data film dalam file teks
+def simpan_ke_file(film_dict):
+    with open("data_film.txt", "w") as file:
+        file.write(str(film_dict))
+        
+# Membaca data film dari file teks
+def baca_dari_file():
+    try:
+        with open("data_film.txt", "r") as file:
+            data = file.read()
+            if data:
+                return ast.literal_eval(data)
+            else:
+                return {}
+    except FileNotFoundError:
+        return {}
+        
+# Menampilkan menu
+print()
+def tampilkan_menu():
+    print("\nPilih opsi:")
+    print("1. Tambah data film")
+    print("2. Hapus data film")
+    print("3. Edit data film")
+    print("4. Tampilkan data film")
+    print("5. Keluar")
+
+if __name__ == "__main__":
+    film_dict = baca_dari_file()
+    while True:
+        tampilkan_menu()
+        pilihan = input("Masukkan nomor opsi: ")
+
+        if pilihan == "1":
+            tambah_data(film_dict)
+        elif pilihan == "2":
+            hapus_data(film_dict)
+        elif pilihan == "3":
+            edit_data(film_dict)
+        elif pilihan == "4":
+            tampilkan_data(film_dict)
+        elif pilihan == "5":
+            simpan_ke_file(film_dict)
+            print("Terima kasih telah menggunakan program.")
+            break
+        else:
+            print("Opsi tidak ditemukan. Silakan pilih lagi.")
