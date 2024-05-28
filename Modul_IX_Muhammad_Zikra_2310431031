@@ -1,0 +1,32 @@
+from termcolor import colored, cprint
+import os
+import time
+
+os.system('cls')
+
+for i in range (4):
+    cprint(" "*3,"red", "on_red",end="  ")
+    
+for i in range (4):
+    cprint(" "*2,"red", "on_red",end="")
+    
+print()
+ 
+for i in range (5):
+    if i < 3 :
+        cprint(" "*3,"red", "on_red",end=" "*2)
+        cprint(" "*3,"red", "on_red",end=" "*2)
+        cprint(" "*3,"red", "on_red",end=" "*2)
+        if i > 0 :
+            cprint(" "*3,"red", "on_dark_grey",end="  ")
+            cprint(" "*3,"red", "on_red",end=" ")
+        print()
+        
+        
+    else :
+        cprint(" "*3,"red", "on_red",end=" "*2)
+        print(" "*3,end=" "*2)
+        cprint(" "*3,"red", "on_red",end=" "*2)
+        cprint(" "*3,"red","on_dark_grey",end=" "*2)
+        cprint(" "*3,"red", "on_red",end=" ")
+        print()
